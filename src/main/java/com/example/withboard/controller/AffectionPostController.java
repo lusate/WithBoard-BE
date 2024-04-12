@@ -32,9 +32,6 @@ public class AffectionPostController {
         return BaseResponse.success(allAffectionPost);
     }
 
-    @PostMapping("/affectionPost/create")
-    public void createAffectionPost(@RequestBody AffectionPostCreateDto affectionPostCreateResponseDto){
-        affectionPostFacade.create(affectionPostCreateResponseDto);
 
     @DeleteMapping("/affectionPost/{affectionPostId}")
     public BaseResponse<Void> deleteAffectionPost(@PathVariable Long affectionPostId){
@@ -47,6 +44,9 @@ public class AffectionPostController {
         affectionPostService.modifyAffectionPost(affectionPostId,affectionPostRequestUpdateDto);
         return BaseResponse.success();
     }
-
+    @PostMapping("/affectionPost/create")
+    public void createAffectionPost(@RequestBody AffectionPostCreateDto affectionPostCreateResponseDto) {
+        affectionPostFacade.create(affectionPostCreateResponseDto);
+    }
 
 }
