@@ -1,12 +1,16 @@
 package com.example.withboard.domain;
 
+import com.example.withboard.repository.AffectionRepository;
+import com.example.withboard.repository.PostRepository;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
 @Getter
+@Setter
 public class AffectionPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +27,5 @@ public class AffectionPost {
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
+
 }

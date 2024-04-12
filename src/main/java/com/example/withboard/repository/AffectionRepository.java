@@ -11,5 +11,4 @@ public interface AffectionRepository extends JpaRepository<AffectionPost,Long> {
 
 
     List<AffectionPost> findAll();
-
 }

@@ -3,15 +3,15 @@ package com.example.withboard.controller;
 
 import com.example.withboard.common.dto.BaseResponse;
 import com.example.withboard.dto.AffectionPostAllResponseDto;
+import com.example.withboard.dto.AffectionPostCreateDto;
+import com.example.withboard.facade.AffectionPostFacade;
 import com.example.withboard.service.AffectionPostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/home")
@@ -21,6 +21,7 @@ public class AffectionPostController {
 
     private final AffectionPostService affectionPostService;
 
+    private final AffectionPostFacade affectionPostFacade;
 
     @GetMapping("/affectionPost")
     public BaseResponse <List <AffectionPostAllResponseDto>> getAffectionPostAll(){
@@ -30,4 +31,8 @@ public class AffectionPostController {
     }
 
 
+    @PostMapping("/affectionPost/create")
+    public void getAffectionPost(@RequestBody AffectionPostCreateDto affectionPostCreateResponseDto){
+        affectionPostFacade.create(affectionPostCreateResponseDto);
+    }
 }
