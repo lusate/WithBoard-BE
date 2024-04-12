@@ -8,30 +8,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
 public class SpotLocation {
     @Id
-    @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "location_id")
     private Long locationId;
 
-    @Getter
     @Column(nullable = false)
     private String parkName;
 
-    @Getter
     @Column(precision = 10, scale = 2)
     private BigDecimal latitude;
 
-    @Getter
     @Column(precision = 10, scale = 2)
     private BigDecimal longitude;
 
-    @Getter
     @Column(nullable = false)
     private String imageUrl;
 
-    @Getter
     @Column(nullable = false)
     private String hotspotAddress;
 
