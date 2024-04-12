@@ -7,6 +7,7 @@ import com.example.withboard.domain.Post;
 import com.example.withboard.domain.User;
 import com.example.withboard.dto.AffectionPostAllResponseDto;
 import com.example.withboard.dto.AffectionPostCreateDto;
+import com.example.withboard.dto.AffectionPostDetailResponseDto;
 import com.example.withboard.dto.AffectionPostRequestUpdateDto;
 import com.example.withboard.repository.AffectionRepository;
 import com.example.withboard.repository.PostRepository;
@@ -36,6 +37,16 @@ public class AffectionPostService {
                 .map((eachAffection)-> AffectionPostAllResponseDto.of(eachAffection))
                 .toList();
     }
+
+
+    public AffectionPostDetailResponseDto findDetailAffectionPost(Long AffectionPostId){
+        AffectionPost affectionPost = affectionRepository.findById(AffectionPostId).orElse(null);
+
+        AffectionPostDetailResponseDto affectionPostDetailResponseDto = AffectionPostDetailResponseDto.of(affectionPost);
+
+        return affectionPostDetailResponseDto;
+    }
+
 
     public void deleteAffectionPost(Long affectionPostId){
         affectionRepository.deleteById(affectionPostId);

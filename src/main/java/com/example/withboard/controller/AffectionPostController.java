@@ -4,6 +4,7 @@ package com.example.withboard.controller;
 import com.example.withboard.common.dto.BaseResponse;
 import com.example.withboard.dto.AffectionPostAllResponseDto;
 import com.example.withboard.dto.AffectionPostCreateDto;
+import com.example.withboard.dto.AffectionPostDetailResponseDto;
 import com.example.withboard.facade.AffectionPostFacade;
 import com.example.withboard.dto.AffectionPostRequestUpdateDto;
 import com.example.withboard.service.AffectionPostService;
@@ -29,6 +30,13 @@ public class AffectionPostController {
     public BaseResponse <List <AffectionPostAllResponseDto>> getAffectionPostAll(){
 
         List<AffectionPostAllResponseDto> allAffectionPost = affectionPostService.findAllAffectionPost();
+        return BaseResponse.success(allAffectionPost);
+    }
+
+    @GetMapping("/affectionPost/{affectionPostId}")
+    public BaseResponse <AffectionPostDetailResponseDto>getAffectionPost(@PathVariable Long affectionPostId ){
+
+        AffectionPostDetailResponseDto allAffectionPost = affectionPostService.findDetailAffectionPost(affectionPostId);
         return BaseResponse.success(allAffectionPost);
     }
 
