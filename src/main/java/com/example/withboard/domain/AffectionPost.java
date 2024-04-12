@@ -1,13 +1,18 @@
 package com.example.withboard.domain;
 
+
+import com.example.withboard.repository.AffectionRepository;
+import com.example.withboard.repository.PostRepository;
 import com.example.withboard.dto.AffectionPostRequestUpdateDto;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
 @Getter
+@Setter
 public class AffectionPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,4 +33,5 @@ public class AffectionPost {
      public void modifyAffectionPost(Post post){
         this.post=post;
     }
+
 }

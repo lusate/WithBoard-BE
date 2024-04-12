@@ -4,15 +4,19 @@ import com.example.withboard.common.dto.BaseResponse;
 import com.example.withboard.config.BaseException;
 import com.example.withboard.domain.AffectionPost;
 import com.example.withboard.domain.Post;
+import com.example.withboard.domain.User;
 import com.example.withboard.dto.AffectionPostAllResponseDto;
+import com.example.withboard.dto.AffectionPostCreateDto;
 import com.example.withboard.dto.AffectionPostRequestUpdateDto;
 import com.example.withboard.repository.AffectionRepository;
 import com.example.withboard.repository.PostRepository;
+import com.example.withboard.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.example.withboard.common.BaseResponseStatus.FAILURE;
@@ -24,7 +28,7 @@ import static com.example.withboard.common.BaseResponseStatus.FAILURE;
 public class AffectionPostService {
 
     private final AffectionRepository affectionRepository;
-    private final PostRepository postRepository;
+    private final UserRepository userRepository;
     public List<AffectionPostAllResponseDto> findAllAffectionPost(){
         List<AffectionPost> affectionList = affectionRepository.findAll();
 
@@ -37,6 +41,17 @@ public class AffectionPostService {
         affectionRepository.deleteById(affectionPostId);
     }
 
+    public AffectionPost save(Post createdPost, Long userId) {
+
+        AffectionPost affectionPost = new AffectionPost();
+        affectionPost.setPost(createdPost);
+        affectionPost.setUser(userRepository.findUserById(userId).orElseThrow());
+        affectionRepository.save(affectionPost);
+        return  affectionPost;
+    }
+
+
+
     public void modifyAffectionPost(Long affectionPostId, AffectionPostRequestUpdateDto affectionPostRequestUpdateDto){
         AffectionPost affectionPost = affectionRepository.findById(affectionPostId).orElse(null);
 
@@ -47,6 +62,5 @@ public class AffectionPostService {
 
         affectionRepository.save(affectionPost);
     }
-
 
 }

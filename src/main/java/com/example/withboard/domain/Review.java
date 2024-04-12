@@ -1,7 +1,10 @@
 package com.example.withboard.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,6 +13,8 @@ import java.util.List;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
+@Setter
+@Getter
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
