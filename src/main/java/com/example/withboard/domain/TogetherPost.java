@@ -1,2 +1,5 @@
-package com.example.withboard.domain;public class TogetherPost {
+package com.example.withboard.domain;
+
+public class TogetherPost {
+
 }

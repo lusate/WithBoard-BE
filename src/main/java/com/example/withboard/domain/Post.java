@@ -1,15 +1,29 @@
 package com.example.withboard.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
+
+import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
-public class WithRidePost {
+public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private
+    private String user_id;
+
+    private String title;
+
+    private String content;
+
+    @CreatedDate
+    private LocalDateTime write_At;
+
+
+    // 외래키 뽐내기 작성한 user_id
+    @ManyToOne(fetch = LAZY)
+
 }
