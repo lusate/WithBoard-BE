@@ -29,4 +29,7 @@ public class SpotLocation {
 
     @OneToMany(mappedBy = "TogetherPost", cascade = CascadeType.ALL)
     private List<TogetherPost> spotLocationList = new ArrayList<>();
+
+    @OneToOne
+    private TogetherPost togetherPost;
 }
