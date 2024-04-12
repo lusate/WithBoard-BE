@@ -1,4 +1,4 @@
-INSERT INTO user (id, email, pw, profile_image_url, user_name)
+INSERT INTO user (user_id, email, password, user_image, username)
 VALUES (1, 'aaron@naver.com', '1111', 'https://www.ghibli.jp/gallery/totoro030.jpg', 'aaron'),
        (2, 'baron@naver.com', '2222', 'https://www.ghibli.jp/gallery/totoro031.jpg', 'baron'),
        (3, 'caron@naver.com', '3333', 'https://www.ghibli.jp/gallery/totoro032.jpg', 'caron'),
