@@ -30,7 +30,7 @@ jobs:
 
       # DockerFile 을 기반으로 Docker Image 빌드
       - name: docker image build
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-demo .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/withboard-image .
 
       # Docker Hub 에 Login
       - name: docker login
@@ -41,4 +41,4 @@ jobs:
 
       # Docker Hub 에 빌드된 이미지 push
       - name: docker Hub push
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-demo
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/withboard-image
