@@ -1,5 +1,6 @@
 package com.example.withboard.controller;
 
+import com.example.withboard.dto.HotSpotLocationResponseDto;
 import com.example.withboard.dto.SpotLocationResponseDto;
 import com.example.withboard.service.SpotLocationService;
 import lombok.RequiredArgsConstructor;
@@ -22,4 +23,11 @@ public class HomeController {
     public List<SpotLocationResponseDto> getAllSpotLocations(){
         return spotLocationService.findAllSpotLocation();
     }
+
+
+    @GetMapping("/hotspot")
+    public List<HotSpotLocationResponseDto> getHoySpotLocations(){
+        return spotLocationService.findAllSpotLocationDesc();
+    }
+
 }
