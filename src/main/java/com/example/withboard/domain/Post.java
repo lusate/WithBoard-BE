@@ -44,6 +44,9 @@ public class Post {
     private List<Image> imageList = new ArrayList<>();
 
 
+    public List<String> getPostImages(){
+        return imageList.stream().map(Image::getImageUrl).toList();
+    }
 
     public void modifyPost(String title, String content){
         this.title=title;
