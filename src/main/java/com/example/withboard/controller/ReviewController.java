@@ -1,6 +1,7 @@
 package com.example.withboard.controller;
 
 
+import com.example.withboard.common.dto.BaseResponse;
 import com.example.withboard.dto.ReviewCreateDto;
 import com.example.withboard.service.ReviewService;
 import lombok.RequiredArgsConstructor;
@@ -18,4 +19,12 @@ public class ReviewController {
         reviewService.save(postId, reviewCreateDto);
 
     }
+
+    @DeleteMapping("delete/{reviewId}")
+    public BaseResponse<Void> deleteReview(@PathVariable Long reviewId){
+        reviewService.deleteReview(reviewId);
+        return BaseResponse.success();
+    }
+
+
 }
