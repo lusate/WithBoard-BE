@@ -24,15 +24,15 @@ public class User {
     @Column(nullable = false)
     private String userImage;
 
-    @OneToMany
+    @OneToMany(mappedBy = "TogetherPost", cascade = CascadeType.ALL)
     List<Review> reviewList = new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "like", cascade = CascadeType.ALL)
     List<Likes> likesList = new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "affectionPost", cascade = CascadeType.ALL)
     List<AffectionPost> affectionPostList = new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "togetherPost", cascade = CascadeType.ALL)
     List<TogetherPost> togetherPostList = new ArrayList<>();
 }

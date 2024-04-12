@@ -23,12 +23,19 @@ public class Post {
     private LocalDateTime write_At;
 
 
-    @OneToMany(mappedBy = "affectionPost", cascade = CascadeType.ALL)
-    private List<AffectionPost> affectionPostList = new ArrayList<>();
+    @OneToOne(mappedBy = "affectionPost", cascade = CascadeType.ALL)
+    private AffectionPost affectionPost;
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<Review> reviewList = new ArrayList<>();
 
-    @OneToOne(mappedBy = "review", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "togetherPost", cascade = CascadeType.ALL)
     private TogetherPost togetherPost;
+
+    @OneToMany(mappedBy = "likes", cascade = CascadeType.ALL)
+    private List<Likes> likeList = new ArrayList<>();
+
+    // 이미지
+    @OneToMany(mappedBy = "image", cascade = CascadeType.ALL)
+    private List<Image> imageList = new ArrayList<>();
 }
