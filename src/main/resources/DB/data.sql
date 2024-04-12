@@ -19,7 +19,7 @@ VALUES (1, '완전 재미있어', '재미재미재미', '2023-04-01 12:00:00'),
        (9, 'to자고 싶어', '잠 자고 싶다', '2023-04-08 12:00:00'),
        (10, 't0졸려', '졸려졸려졸려졸려졸려', '2023-04-10 12:00:00');
 
-INSERT INTO withboard.Affection_post (affection_post_id, user_id, post_id)
+INSERT INTO withboard.affection_post (affection_post_id, user_id, post_id)
 VALUES (1, 1, 1),
        (2, 2, 2),
        (3, 3, 3),
