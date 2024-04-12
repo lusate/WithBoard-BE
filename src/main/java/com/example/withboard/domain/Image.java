@@ -8,6 +8,7 @@ import static jakarta.persistence.FetchType.LAZY;
 public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "image_id")
     private Long imageId;
 
     @Column(nullable = false)
@@ -15,6 +16,7 @@ public class Image {
 
     // 외래키 - 게시글 id
     @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "post_id")
     private Post post;
 
 }

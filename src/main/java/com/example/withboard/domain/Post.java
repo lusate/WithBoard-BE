@@ -11,9 +11,9 @@ import java.util.List;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id")
     private Long postId;
 
-    private String user_id;
 
     private String title;
 
@@ -23,19 +23,19 @@ public class Post {
     private LocalDateTime write_At;
 
 
-    @OneToOne(mappedBy = "affectionPost", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "post", cascade = CascadeType.ALL)
     private AffectionPost affectionPost;
 
-    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
-    private List<Review> reviewList = new ArrayList<>();
-
-    @OneToOne(mappedBy = "togetherPost", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "post", cascade = CascadeType.ALL)
     private TogetherPost togetherPost;
 
-    @OneToMany(mappedBy = "likes", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Likes> likeList = new ArrayList<>();
 
     // 이미지
-    @OneToMany(mappedBy = "image", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Image> imageList = new ArrayList<>();
 }

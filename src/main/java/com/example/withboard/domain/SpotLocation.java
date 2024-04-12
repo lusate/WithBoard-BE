@@ -10,6 +10,7 @@ import java.util.List;
 public class SpotLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "location_id")
     private Long locationId;
 
     @Column(nullable = false)
@@ -27,9 +28,9 @@ public class SpotLocation {
     @Column(nullable = false)
     private String hotspotAddress;
 
-    @OneToMany(mappedBy = "TogetherPost", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "spotLocation", cascade = CascadeType.ALL)
     private List<TogetherPost> spotLocationList = new ArrayList<>();
 
-    @OneToOne
-    private TogetherPost togetherPost;
+    @OneToMany(mappedBy = "spotLocation", cascade = CascadeType.ALL)
+    private List<TogetherPost> togetherPostList = new ArrayList<>();
 }

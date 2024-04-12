@@ -13,6 +13,7 @@ import static jakarta.persistence.FetchType.LAZY;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "review_id")
     private Long reviewId;
 
     @CreatedDate // 엔티티가 생성된 날짜를 나타내는 필드를 선언
@@ -23,13 +24,13 @@ public class Review {
 
     // 외래키 리뷰 작성한 User_id
     @ManyToOne(fetch = LAZY)
-    @JoinColumn
+    @JoinColumn(name = "user_id")
     private User user;
 
 
     // 외래키 게시글 id
     @ManyToOne(fetch = LAZY)
-    @JoinColumn
+    @JoinColumn(name = "post_id")
     private Post post;
 
 }
