@@ -3,13 +3,14 @@ package com.example.withboard.controller;
 
 import com.example.withboard.common.dto.BaseResponse;
 import com.example.withboard.dto.ReviewCreateDto;
+import com.example.withboard.dto.ReviewUpdateDto;
 import com.example.withboard.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api/reivew")
+@RequestMapping("/api/review")
 @RequiredArgsConstructor
 public class ReviewController {
 
@@ -26,5 +27,10 @@ public class ReviewController {
         return BaseResponse.success();
     }
 
+    @PutMapping("update/{reviewId}")
+    public BaseResponse<Void> updateReview(@PathVariable Long reviewId, @RequestBody String content){
+        reviewService.modifyReview(reviewId,content);
+        return BaseResponse.success();
+    }
 
 }

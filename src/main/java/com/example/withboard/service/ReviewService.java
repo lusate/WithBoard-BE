@@ -2,6 +2,7 @@ package com.example.withboard.service;
 
 import com.example.withboard.domain.Review;
 import com.example.withboard.dto.ReviewCreateDto;
+import com.example.withboard.dto.ReviewUpdateDto;
 import com.example.withboard.repository.PostRepository;
 import com.example.withboard.repository.ReviewRepository;
 import com.example.withboard.repository.UserRepository;
@@ -35,4 +36,13 @@ public class ReviewService {
     public void deleteReview(Long reviewId){
         reviewRepository.deleteById(reviewId);
     }
+
+    public void modifyReview(Long reviewId, String content){
+        Review review = reviewRepository.findById(reviewId).orElse(null);
+
+        review.modifyReview(content);
+        reviewRepository.save(review);
+
+    }
+
 }
