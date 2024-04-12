@@ -12,7 +12,7 @@ public class TogetherPost {
     private Long togetherPostId;
 
     @Column(nullable = false)
-    private Integer capacity;
+    private Integer capacity; // 제한 인원
 
     // 외래키
     @ManyToOne(fetch = LAZY)
