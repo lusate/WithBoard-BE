@@ -32,7 +32,9 @@ public class AffectionPostController {
 
 
     @PostMapping("/affectionPost/create")
-    public void getAffectionPost(@RequestBody AffectionPostCreateDto affectionPostCreateResponseDto){
+    public void createAffectionPost(@RequestBody AffectionPostCreateDto affectionPostCreateResponseDto){
         affectionPostFacade.create(affectionPostCreateResponseDto);
     }
+
+
 }
