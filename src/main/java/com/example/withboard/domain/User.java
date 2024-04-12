@@ -10,6 +10,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
 
     @Column(nullable = false)
@@ -24,15 +25,15 @@ public class User {
     @Column(nullable = false)
     private String userImage;
 
-    @OneToMany(mappedBy = "TogetherPost", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     List<Review> reviewList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "like", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     List<Likes> likesList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "affectionPost", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     List<AffectionPost> affectionPostList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "togetherPost", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     List<TogetherPost> togetherPostList = new ArrayList<>();
 }

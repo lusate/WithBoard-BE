@@ -8,6 +8,7 @@ import static jakarta.persistence.FetchType.LAZY;
 public class TogetherPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "together_post_id")
     private Long togetherPostId;
 
     @Column(nullable = false)
@@ -15,17 +16,17 @@ public class TogetherPost {
 
     // 외래키
     @ManyToOne(fetch = LAZY)
-    @JoinColumn
+    @JoinColumn(name = "user_id")
     private User user;
 
     // 외래키
     @ManyToOne(fetch = LAZY)
-    @JoinColumn
+    @JoinColumn(name = "spot_location_id")
     private SpotLocation spotLocation;
 
     // 외래키
     @OneToOne(fetch = LAZY)
-    @JoinColumn
+    @JoinColumn(name = "post_id")
     private Post post;
 
 }
