@@ -29,8 +29,5 @@ public class SpotLocation {
     private String hotspotAddress;
 
     @OneToMany(mappedBy = "spotLocation", cascade = CascadeType.ALL)
-    private List<TogetherPost> spotLocationList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "spotLocation", cascade = CascadeType.ALL)
     private List<TogetherPost> togetherPostList = new ArrayList<>();
 }
