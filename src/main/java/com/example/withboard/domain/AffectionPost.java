@@ -1,10 +1,12 @@
 package com.example.withboard.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
+@Getter
 public class AffectionPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
