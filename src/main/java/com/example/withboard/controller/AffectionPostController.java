@@ -3,6 +3,7 @@ package com.example.withboard.controller;
 
 import com.example.withboard.common.dto.BaseResponse;
 import com.example.withboard.dto.AffectionPostAllResponseDto;
+import com.example.withboard.dto.AffectionPostRequestUpdateDto;
 import com.example.withboard.service.AffectionPostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +19,6 @@ public class AffectionPostController {
 
     private final AffectionPostService affectionPostService;
 
-
     @GetMapping("/affectionPost")
     public BaseResponse <List <AffectionPostAllResponseDto>> getAffectionPostAll(){
 
@@ -27,11 +27,17 @@ public class AffectionPostController {
     }
 
 
-
     @DeleteMapping("/affectionPost/{affectionPostId}")
     public BaseResponse<Void> deleteAffectionPost(@PathVariable Long affectionPostId){
         affectionPostService.deleteAffectionPost(affectionPostId);
         return BaseResponse.success();
     }
+
+    @PutMapping("/affectionPost/{affectionPostId}")
+    public BaseResponse<Void> updateAffectionPost(@PathVariable Long affectionPostId, @RequestBody AffectionPostRequestUpdateDto affectionPostRequestUpdateDto ) {
+        affectionPostService.modifyAffectionPost(affectionPostId,affectionPostRequestUpdateDto);
+        return BaseResponse.success();
+    }
+
 
 }
