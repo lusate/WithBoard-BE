@@ -1,4 +1,4 @@
-package com.example.withboard.dto.responseDto;
+package com.example.withboard.dto.requestDto;
 
 
 import lombok.AccessLevel;
@@ -7,5 +7,7 @@ import lombok.Getter;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public class HomeResponseDto {
+public class LikesRequestDto {
+    private Long userId;
+    private Long postId;
 }
