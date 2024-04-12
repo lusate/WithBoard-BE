@@ -3,12 +3,14 @@ package com.example.withboard.domain;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class SpotLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long location_id;
+    private Long locationId;
 
     @Column(nullable = false)
     private String parkName;
@@ -24,4 +26,7 @@ public class SpotLocation {
 
     @Column(nullable = false)
     private String hotspotAddress;
+
+    @OneToMany(mappedBy = "TogetherPost", cascade = CascadeType.ALL)
+    private List<TogetherPost> spotLocationList = new ArrayList<>();
 }

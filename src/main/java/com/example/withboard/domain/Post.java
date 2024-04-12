@@ -4,14 +4,14 @@ import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
-
-import static jakarta.persistence.FetchType.LAZY;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long postId;
 
     private String user_id;
 
@@ -23,7 +23,12 @@ public class Post {
     private LocalDateTime write_At;
 
 
-    // 외래키 뽐내기 작성한 user_id
-    @ManyToOne(fetch = LAZY)
+    @OneToMany(mappedBy = "affectionPost", cascade = CascadeType.ALL)
+    private List<AffectionPost> affectionPostList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();
+
+    @OneToOne(mappedBy = "review", cascade = CascadeType.ALL)
+    private TogetherPost togetherPost;
 }
