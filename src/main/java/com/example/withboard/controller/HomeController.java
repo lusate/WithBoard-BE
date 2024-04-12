@@ -1,5 +1,6 @@
 package com.example.withboard.controller;
 
+import com.example.withboard.common.dto.BaseResponse;
 import com.example.withboard.dto.HotSpotLocationResponseDto;
 import com.example.withboard.dto.SpotLocationResponseDto;
 import com.example.withboard.service.SpotLocationService;
@@ -20,14 +21,14 @@ public class HomeController {
     private final SpotLocationService spotLocationService;
 
     @GetMapping("/")
-    public List<SpotLocationResponseDto> getAllSpotLocations(){
-        return spotLocationService.findAllSpotLocation();
+    public BaseResponse<List<SpotLocationResponseDto>> getAllSpotLocations(){
+        return BaseResponse.success(spotLocationService.findAllSpotLocation());
     }
 
 
     @GetMapping("/hotspot")
-    public List<HotSpotLocationResponseDto> getHoySpotLocations(){
-        return spotLocationService.findAllSpotLocationDesc();
+    public BaseResponse<List<HotSpotLocationResponseDto>> getHoySpotLocations(){
+        return BaseResponse.success(spotLocationService.findAllSpotLocationDesc());
     }
 
 }
