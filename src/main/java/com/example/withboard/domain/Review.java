@@ -1,5 +1,6 @@
 package com.example.withboard.domain;
 
+import com.example.withboard.dto.ReviewUpdateDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,5 +38,10 @@ public class Review {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
+
+
+    public void modifyReview(String content){
+        this.content=content;
+    }
 
 }
