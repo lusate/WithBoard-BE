@@ -1,10 +1,13 @@
 package com.example.withboard.service;
 
+import com.example.withboard.common.dto.BaseResponse;
+import com.example.withboard.config.BaseException;
 import com.example.withboard.domain.AffectionPost;
 import com.example.withboard.domain.Post;
 import com.example.withboard.domain.User;
 import com.example.withboard.dto.AffectionPostAllResponseDto;
 import com.example.withboard.dto.AffectionPostCreateDto;
+import com.example.withboard.dto.AffectionPostRequestUpdateDto;
 import com.example.withboard.repository.AffectionRepository;
 import com.example.withboard.repository.PostRepository;
 import com.example.withboard.repository.UserRepository;
@@ -15,6 +18,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import static com.example.withboard.common.BaseResponseStatus.FAILURE;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +35,10 @@ public class AffectionPostService {
         return affectionList.stream()
                 .map((eachAffection)-> AffectionPostAllResponseDto.of(eachAffection))
                 .toList();
+    }
 
+    public void deleteAffectionPost(Long affectionPostId){
+        affectionRepository.deleteById(affectionPostId);
     }
 
     public AffectionPost save(Post createdPost, Long userId) {
@@ -43,5 +51,16 @@ public class AffectionPostService {
     }
 
 
+
+    public void modifyAffectionPost(Long affectionPostId, AffectionPostRequestUpdateDto affectionPostRequestUpdateDto){
+        AffectionPost affectionPost = affectionRepository.findById(affectionPostId).orElse(null);
+
+        Post post = affectionPost.getPost();
+        post.modifyPost(affectionPostRequestUpdateDto.getTitle(), affectionPostRequestUpdateDto.getContent());
+
+        affectionPost.modifyAffectionPost(post);
+
+        affectionRepository.save(affectionPost);
+    }
 
 }

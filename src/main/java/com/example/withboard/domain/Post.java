@@ -42,4 +42,11 @@ public class Post {
     // 이미지
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Image> imageList = new ArrayList<>();
+
+
+
+    public void modifyPost(String title, String content){
+        this.title=title;
+        this.content=content;
+    }
 }
