@@ -7,6 +7,7 @@ import lombok.Getter;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public class AffectionPostRequestDto {
-
+public class AffectionPostRequestUpdateDto {
+    private String title;
+    private String content;
 }

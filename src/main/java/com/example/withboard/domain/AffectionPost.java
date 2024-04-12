@@ -1,5 +1,6 @@
 package com.example.withboard.domain;
 
+import com.example.withboard.dto.AffectionPostRequestUpdateDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -23,4 +24,8 @@ public class AffectionPost {
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
+
+     public void modifyAffectionPost(Post post){
+        this.post=post;
+    }
 }
