@@ -1,5 +1,6 @@
 package com.example.withboard.service;
 
+import com.example.withboard.common.dto.BaseResponse;
 import com.example.withboard.domain.AffectionPost;
 import com.example.withboard.domain.Post;
 import com.example.withboard.dto.AffectionPostAllResponseDto;
@@ -26,6 +27,12 @@ public class AffectionPostService {
         return affectionList.stream()
                 .map((eachAffection)-> AffectionPostAllResponseDto.of(eachAffection))
                 .toList();
-
     }
+
+    public void deleteAffectionPost(Long employmentId){
+        affectionRepository.deleteById(employmentId);
+    }
+
+
+
 }
