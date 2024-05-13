@@ -1,5 +1,4 @@
-# 해커톤: With Board
-[WithBoard-Project](https://github.com/WithBoard-Project)
+# 💟 해커톤: With Board
 
 ---
 
