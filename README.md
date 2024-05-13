@@ -57,11 +57,14 @@ https://blog.naver.com/jjpark314/222029341486` ← 스케이트 보드 상식
 
 Main Flow
 
-![123.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/a49328a7-2cfc-4af9-866d-f60a075dc2a3/d3abead7-7926-4ee4-aad5-f8123a9a8cef/123.jpg)
+![123](https://github.com/lusate/WithBoard-BE/assets/95400441/8ebd0b54-a03e-4e14-9a58-3f9e492c1926)
+
+
 
 보드 자랑 게시판 Flow
 
-![1.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/a49328a7-2cfc-4af9-866d-f60a075dc2a3/5945282d-6333-404f-9675-3692942a342c/1.jpg)
+![1](https://github.com/lusate/WithBoard-BE/assets/95400441/ed704f90-bce1-4a33-845e-94f6278501da)
+
 
 ---
 
@@ -71,7 +74,8 @@ Main Flow
 
 # V1. 확장성의 문제가 생길 수 있다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a49328a7-2cfc-4af9-866d-f60a075dc2a3/38fbbf2a-ab34-4066-996e-f80c19c758de/Untitled.png)
+![Untitled](https://github.com/lusate/WithBoard-BE/assets/95400441/1dec89ae-fb5b-46e6-8405-f486d97bd09d)
+
 
 ## V1의 문제점 발생
 
@@ -94,14 +98,8 @@ Main Flow
 
 # v2. V1의 문제점을 해결한 ERD
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a49328a7-2cfc-4af9-866d-f60a075dc2a3/aa2ae15e-b904-4d35-a00e-705a3ca3a27c/Untitled.png)
+![Untitled (1)](https://github.com/lusate/WithBoard-BE/assets/95400441/13255ae2-2294-4d5a-a9d2-1dce8bac4f19)
 
----
-
-- 4️⃣기능 명세
-    
-    [페이지 구현](https://www.notion.so/22a41c7854a24bc3b344f05c6e942480?pvs=21)
-    
 
 ---
 
@@ -147,9 +145,8 @@ Main Flow
 
 ## 6️⃣ 프로젝트 시스템 구상도
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a49328a7-2cfc-4af9-866d-f60a075dc2a3/5696a5b4-82e6-40aa-add2-ce1749458432/Untitled.png)
+---![Untitled (2)](https://github.com/lusate/WithBoard-BE/assets/95400441/e8248a56-7b36-464c-adf9-78983c529651)
 
----
 
 ## 6️⃣ 깃 컨벤션
 
